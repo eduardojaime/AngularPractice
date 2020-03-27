@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Indicate AngularJS to be active in this portion of the page. i.e. the whole document -->
+<html lang="en" ng-app>
+    <head>
+        <meta charset="utf-8" />
+        <title>AnguarJS Demo Page - Introduction</title>
+        <!-- Load BootStrap and AngularJS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    </head>
+    <body>
+        <br />
+        <br />
+        <!-- ng-init initializes variable values -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5">
+                    <label>Enter your user Name : </label>
+                    <br />
+                    <!-- ng-model binds the form and the model, any changes to the value in this input will update the model -->
+                    <input type="text" ng-model="userName" placeholder="Enter a name here">
+                    <br />
+                    <br />
+                    <label>User Name Verification : </label>
+                    <br />
+                    <!-- Linking another input box just for fun -->
+                    <input type="text" ng-model="userName" placeholder="Enter a name here" readonly="true">
+                </div>
+                <div class="col-sm-5">
+                    <!-- {{ }} specifies databinding, in this case it's linked to the userName property -->
+                    <h1>Hello {{userName}}!</h1>
+                    <!-- ng-bind directive binds the innerHTML value of this tag to the variable value -->
+                    <label ng-bind="userName + ' please agree to the terms of use.'"></label>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+        <hr>
+        <!-- ng-init initializes variable values -->
+        <div class="container" ng-init="userEmail='username@domain.com'">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5">
+                    <label>Enter your user Email Address : </label>
+                    <br />
+                    <!-- ng-model binds the form and the model, any changes to the value in this input will update the model -->
+                    <input type="text" ng-model="userEmail" placeholder="Enter an email address here">
+                </div>
+                <div class="col-sm-5">
+                    <!-- ng-bind directive binds the innerHTML value of this tag to the variable value -->
+                    <label ng-bind="userEmail + ' will be the email address used to contact you.'"></label>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div> 
+        <hr>
+        <!-- add data- to ng directives to make them valid html -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5">
+                    <label>Enter your user Mailing Address : </label>
+                    <br />
+                    <!-- ng-model binds the form and the model, any changes to the value in this input will update the model -->
+                    <input type="text" data-ng-model="userAddress" placeholder="Example: 1234 North St, Toronto, ON M2N 0A9">
+                </div>
+                <div class="col-sm-5">
+                    <!-- ng-bind directive binds the innerHTML value of this tag to the variable value -->
+                    <label data-ng-bind="'The following address : ' + userAddress + ' will only be used to contact you if you set it on your mailing preferences.'"></label>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Indicate AngularJS to be active in this portion of the page. i.e. the whole document -->
+<!-- This time I will be appending 'data-' to every directive in order to have a 'valid' HTML markup -->
+<html lang="en" data-ng-app data-ng-init="iQtySB=0; iQtyMB=0; iQtyLB=0; decPriceSB=8.00; decPriceMB=10.00; decPriceLB=12.00; decTotal=0">
+    <head>
+        <meta charset="utf-8" />
+        <title>AnguarJS Demo Page - Demo</title>
+        <!-- Load BootStrap and AngularJS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <style>
+            .PriceBox {
+                max-width: 50px;
+            }   
+            .QtyBox {
+                max-width: 25px;
+            }            
+        </style>
+    </head>
+    <body>
+        <br />
+        <br />
+        <!-- ng-init initializes variable values -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5">
+                    <label>Select your desired products : </label>
+                    <br />
+                    <label>T-SHIRT Small/Blue at $</label>
+                    <input readonly="true" type="number" data-ng-model="decPriceSB" value="8.00" class="PriceBox"> each.
+                    <br />
+                    <label>Quantity : </label>
+                    <input type="text" type="number" data-ng-model="iQtySB" class="QtyBox" placeholder="Enter Quantity">
+                    <br />
+                    <br />
+                    <label>T-SHIRT Medium/Blue at $</label>
+                    <input readonly="true" type="number" data-ng-model="decPriceMB" value="10.00" class="PriceBox"> each.
+                    <br />
+                    <label>Quantity : </label>
+                    <input type="text" type="number" data-ng-model="iQtyMB" class="QtyBox" placeholder="Enter Quantity">
+                    <br />
+                    <br />
+                    <label>T-SHIRT Large/Blue at $</label>
+                    <input readonly="true" type="number" data-ng-model="decPriceLB" value="12.00" class="PriceBox"> each.
+                    <br />
+                    <label>Quantity : </label>
+                    <input type="text" type="number" data-ng-model="iQtyLB" class="QtyBox" placeholder="Enter Quantity">
+                </div>
+                <div class="col-sm-5">
+                    <!-- {{ }} specifies databinding, in this case it's linked to the userName property -->
+                    <h1>Your Total Today</h1>
+                    <!-- ng-bind directive binds the innerHTML value of this tag to the variable value -->
+                    USD $ <label data-ng-model="decTotal" data-ng-bind="(decPriceSB * iQtySB) + (decPriceMB * iQtyMB) + (decPriceLB * iQtyLB)"></label>
+                    <hr>
+                    CAD $ <label data-ng-bind="((decPriceSB * iQtySB) + (decPriceMB * iQtyMB) + (decPriceLB * iQtyLB)) * 1.2"></label>
+
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+        <hr>
+    </body>
+</html>
